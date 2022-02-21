@@ -89,7 +89,7 @@ function renderItem(todoItem) {
     todoItem.description,
     todoItem.completed
   );
-  document.querySelector("#todoItems").prepend(template);
+  document.querySelector("#todoItems").append(template);
 }
 
 function createTemplate(
