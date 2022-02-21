@@ -18,10 +18,11 @@ document.querySelector("#todoForm").addEventListener("submit", (e) => {
     obj[input.name] = input.value;
   }
 
-  saveData(obj);
+  ;
+console.log(saveData(obj))
     renderItem(obj);
     countTasks = document.querySelectorAll(".taskWrapper");
-
+console.log(countTasks)
   e.target.reset();
 });
 
