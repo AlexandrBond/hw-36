@@ -25,7 +25,7 @@ console.log(saveData(obj))
 console.log(countTasks)
   e.target.reset();
 });
-
+/*
 document.body.addEventListener("click", (e) => {
   if (
     (e.target.type === "checkbox" && e.target.closest(".taskWrapper")) ||
@@ -55,7 +55,31 @@ document.body.addEventListener("click", (e) => {
     localStorage.setItem(DB_NAME, JSON.stringify(data));
   }
 });
+*/
+document.body.addEventListener("click", (e) => {
+    if ((e.target.type === "checkbox" && e.target.closest(".taskWrapper" )) ||
+    e.target.name === "delTask") {
 
+        const data = JSON.parse(localStorage[DB_NAME]);
+        for (let i = 0; i < countTasks.length; i++) {
+            if (countTasks[i] === e.target.closest(".taskWrapper")){
+                if (e.target.name === "delTask") {
+                    data.splice(data.length - 1 - i, 1);
+                    document.querySelector("#todoItems").innerHTML = "";
+                    data.forEach((item) => renderItem(item));
+                    countTasks = document.querySelectorAll(".taskWrapper");
+                } else {
+                    data[data.length - 1 - i].completed = data[data.length - 1 - i]
+                    .completed
+                    ? false
+                    : true;
+    
+                }
+            }
+        }
+        localStorage.setItem(DB_NAME, JSON.stringify(data));
+    }
+});
 function saveData(todoItem) {
   if (localStorage[DB_NAME]) {
     const data = JSON.parse(localStorage[DB_NAME]);
