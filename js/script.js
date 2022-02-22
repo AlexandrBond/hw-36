@@ -38,7 +38,7 @@ document.body.addEventListener("click", (e) => {
         if (e.target.name === "delTask") {
           data.splice(data.length - 1 - i, 1);
         
-          localStorage.setItem(DB_NAME, JSON.stringify(data));
+          //localStorage.setItem(DB_NAME, JSON.stringify(data));
 
           document.querySelector("#todoItems").innerHTML = "";
           data.forEach((item) => renderItem(item));
