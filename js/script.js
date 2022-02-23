@@ -96,7 +96,8 @@ function saveData(todoItem) {
 function deleteAll() {
       if (confirm("Do you want to delete ALL this shit ?")) {
         document.querySelector("#todoItems").innerHTML = "";
-        localStorage.setItem(DB_NAME, JSON.stringify([]));
+       // localStorage.setItem(DB_NAME, JSON.stringify([]));
+localStorage.clear();
       } 
 }
 
